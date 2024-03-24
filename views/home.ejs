@@ -3,45 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lego Collection</title>
+    <title>Lego Collection - <%= set.name %></title>
     <link rel="stylesheet" href="/css/main.css">
     <style>
         /* Updated styles */
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .hero {
-            background-color: #f0f0f0; /* Light gray background */
-            color: #333; /* Dark text color */
-        }
-
-        .btn {
-            background-color: #4CAF50; /* Green */
-            color: white;
-            padding: 10px 20px;
+            background-color: #007bff; /* Blue hero section */
+            color: #fff; /* White text color */
+            padding: 40px;
+            border-radius: 8px;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 5px;
+            margin-bottom: 30px;
         }
 
-        .btn:hover {
-            background-color: #45a049; /* Darker green on hover */
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .card {
             background-color: #fff; /* White cards */
-            color: #333; /* Dark text color */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .card-title {
-            color: #444; /* Slightly darker text color for titles */
+        .card img {
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
 
-        .card-actions .btn-primary {
-            background-color: #007bff; /* Blue */
-            color: white;
-            padding: 5px 10px;
+        .card-content {
+            padding: 20px;
+        }
+
+        .btn {
+            background-color: #28a745; /* Green button */
+            color: #fff; /* White text color */
+            padding: 10px 20px;
             text-decoration: none;
-            border-radius: 3px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 10px;
         }
 
-        .card-actions .btn-primary:hover {
-        
+        .btn:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    </style>
+    <script>
+        // Fetch a random quote from https://quotable.io/random when the page is loaded
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log("calling https://quotable.io/random to fetch quote")
+            let res = await fetch('https://quotable.io/random');
+            let data = await res.json();
+            console.log(data);
+            document.getElementById(
+                'quote'
+            ).innerHTML = `"${data.content}"<br />- <em>${data.author}</em>`;
+        });
+    </script>
+</head>
+<body tabindex="-1">
+  <%- include('partials/navbar', {page: '/set' }) %>
+      <div class="container">
+          <div class="hero">
+              <h1><%= set.name %></h1>
+              <p>You may find comprehensive details about the set below: <%= set.name %></p>
+          </div>
+          <div class="grid">
+              <div class="card">
+                  <img src="<%= set.img_url %>" alt="<%= set.name %> Set Image">
+                  <div class="card-content">
+                      <p>
+                          <span class="font-bold">Set Name:</span> <%= set.name %><br>
+                          <span class="font-bold">Year Released:</span> <%= set.year %><br>
+                          <span class="font-bold">Theme:</span> <%= set.theme %><br>
+                          <span class="font-bold">Number of Parts:</span> <%= set.num_parts %><br><br>
+                          <span id="quote"></span><br><br>
+                          <a class="btn" href="/lego/editSet/<%= set.set_num %>">EDIT</a>
+                          <a class="btn" href="#" onclick="history.back(); return false;">RETURN</a>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+</body>
+</html>
