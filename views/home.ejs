@@ -5,71 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lego Collection</title>
     <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    <!-- navbar -->
-    <%- include('partials/navbar', {page: '/'}) %>
-
-    <!-- hero section -->
-    <div class="container mx-auto mt-8">
-        <div class="hero py-20 text-center">
-            <div class="content-wrapper">
-                <p class="text-3xl font-bold mb-4">Explore our Lego collection!</p>
-                <a href="/lego/sets" class="btn">View Lego Sets</a>
-            </div>
-        </div>
-    </div>    
     <style>
-        .content-wrapper {
-            margin-bottom: 20px; 
+        /* Updated styles */
+        .hero {
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333; /* Dark text color */
         }
-    </style>
-    
-    <!-- gird system -->
-    <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-           <!-- Card 1 -->
-            <div class="card bg-base-100 shadow-xl">
-                <figure>
-                    <img class="w-full" src="https://cdn.rebrickable.com/media/sets/001-1.jpg" alt="Lego set" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">{var}</h2>
-                    <p>In 1965, Samsonite published this set in the United States and Canada.In 1969, it was reissued as part of an instructional set (322-4). In Europe, it was never released.</p>
-                    <div class="card-actions justify-end">
-                        <a href="/lego/sets" class="btn btn-primary">View</a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="card bg-base-100 shadow-xl">
-                <figure>
-                    <img class="w-full" src="https://cdn.rebrickable.com/media/sets/0011-2.jpg" alt="Lego set" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Classic Town</h2>
-                    <p>classic Town  was released in 1979.</p>
-                    <div class="card-actions justify-end">
-                        <a href="/lego/sets/001-1" class="btn btn-primary">View</a>
-                    </div>
-                </div>
-            </div>
+        .btn {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+        }
 
-            <!-- Card 3 -->
-            <div class="card bg-base-100 shadow-xl">
-                <figure>
-                    <img class="w-full" src="https://cdn.rebrickable.com/media/sets/0015-1.jpg" alt="Lego set" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Supplemental</h2>
-                    <p>Supplemental was released in 1979.</p>
-                    <div class="card-actions justify-end">
-                        <a href="/lego/sets/001-1" class="btn btn-primary">View</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+        .btn:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .card {
+            background-color: #fff; /* White cards */
+            color: #333; /* Dark text color */
+        }
+
+        .card-title {
+            color: #444; /* Slightly darker text color for titles */
+        }
+
+        .card-actions .btn-primary {
+            background-color: #007bff; /* Blue */
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .card-actions .btn-primary:hover {
+        
