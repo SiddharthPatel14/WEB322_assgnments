@@ -10,31 +10,45 @@
     <!-- navbar -->
     <%- include('partials/navbar', {page: '/about'}) %>
 
-    <!-- hero section -->
+    <!-- main content -->
     <div class="container mx-auto">
-        <div class="hero bg-base-200 rounded-lg p-6">
-            <div class="hero-content text-center ">
-                <div class="max-w-md">
-                    <h1 class="text-5xl font-bold">About</h1>
-                    <p class="py-6">All you need to know about me </p>
-
-                    
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div>
-                <img class="rounded-lg h-16 w-16" 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-1">
+                <!-- profile picture -->
+                <img class="rounded-lg mx-auto" 
                      src="https://wallpapers-clan.com/wp-content/uploads/2022/07/funny-cat-9.jpg"
                      alt="profile" />
             </div>
-
-            <div class="prose"> 
-                <p>My name is Siddharth Nileshkumar Patel and i am from india </p>
-                <p>I'm taking computer programming  at Seneca Polytechnic.</p>
-                <p>I like really like playing and indulging mylself into sports actvities and adventures.</p>
+            <div class="md:col-span-2">
+                <!-- personal details -->
+                <div class="hero bg-base-200 rounded-lg p-6">
+                    <div class="hero-content text-center ">
+                        <div class="max-w-md">
+                            <h1 class="text-5xl font-bold">About</h1>
+                            <p class="py-6">All you need to know about me </p>
+                            <table class="table">
+                                <tr>
+                                    <td>Name:</td>
+                                    <td>Siddharth Nileshkumar Patel</td>
+                                </tr>
+                                <tr>
+                                    <td>Age:</td>
+                                    <td>21</td>
+                                </tr>
+                                <tr>
+                                    <td>Sex:</td>
+                                    <td>Male</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- description -->
+                <div class="prose mt-6"> 
+                    <p>My name is Siddharth Nileshkumar Patel and I am from India.</p>
+                    <p>I'm studying computer programming at Seneca Polytechnic.</p>
+                    <p>I really enjoy playing sports and indulging myself in adventurous activities.</p>
+                </div>
             </div>
         </div>        
     </div>
